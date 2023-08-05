@@ -1,13 +1,30 @@
 import { pool } from ".././../db.js"; //conexion  a la base de datos
-//import { pool } from "../../db.js";
+ 
 export const getUsuarios = async (req, res) => {
   console.log(req.params.id);
-
+  console.log("usa get");
   
     const [result] = await pool.query("SELECT * from usuarios");
     res.json(result);
 
 };
+
+export const agregarusu = async (req, res) => { //se agrega usuarios
+  try {
+    const { usu_nombre, usu_apellido,usu_correo,usu_carrera,usu_telefono,contrasena  } = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+    console.log("router user agregar");
+    const [rows] = await pool.query(
+      "INSERT INTO usuarios (usu_nombre,usu_apellido,usu_correo,usu_carrera,usu_telefono,contrasena) VALUES (?, ?, ?,?,?,?)", //creamos el script para cargar los datos
+      [usu_nombre, usu_apellido, usu_correo,usu_carrera,usu_telefono,contrasena]
+    );
+    res.status(201).json("kjh"); //Enviamos el estado al cliente
+  } catch (error) {
+    return res.status(500).json({ message: "error al tratar de guardar" });
+  };
+
+};
+
+
 /*
 export const agregaUsuarios = async (req, res) => {
   try {

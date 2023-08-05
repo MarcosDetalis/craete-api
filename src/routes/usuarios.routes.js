@@ -1,10 +1,11 @@
 import { Router } from "express";
 // importacion de los controladores
-import {getUsuarios} from '../controllers/Usuarios/RegistrasUsuarios.js'
+import {getUsuarios,agregarusu} from '../controllers/Usuarios/RegistrasUsuarios.js'
 
 const router=Router();
 
 router.get("/Usuarios", getUsuarios)
+router.post("/agregarusu",agregarusu);
 
 //update
 //router.put("/update", updateReservas);
