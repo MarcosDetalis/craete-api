@@ -4,8 +4,8 @@ import {getUsuarios,agregarusu} from '../controllers/Usuarios/RegistrasUsuarios.
 
 const router=Router();
 
-router.get("/Usuarios", getUsuarios)
-router.post("/agregarusu",agregarusu);
+router.get("/Usuarios", getUsuarios) // cargar la vista
+router.post("/agregarusu",agregarusu);// carga un nuevo usuario
 
 //update
 //router.put("/update", updateReservas);
