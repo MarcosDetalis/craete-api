@@ -4,6 +4,7 @@ import cors from "cors";
 import bibliotecaPoint from "./routes/reservas.routes.js";
 import indexRoutes from "./routes/index.routes.js";
 import solicitudPoint from "./routes/solicitudes.routes.js"
+import usuariosPoint from "./routes/usuarios.routes.js"
 const app = express();
 // Middlewares
 app.use(morgan("dev"));
