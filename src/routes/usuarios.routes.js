@@ -11,7 +11,7 @@ const router = Router();
 
 router.get("/usuarios", getUsuarios); // cargar la vista
 router.post("/agregarusu", agregarusu); // carga un nuevo usuario
-router.delete("eliminarusu",eliminarusu); // eliminamos un usuario
+router.delete("/eliminarusu",eliminarusu); // eliminamos un usuario
 //router.put("/actualizarusu", actualizarusu);
 
 //update

@@ -42,15 +42,15 @@ export const agregarusu = async (req, res) => {
 export const eliminarusu = async (req, res) => {
   try {
     const {id} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
-   
+     console.log(id)
     const [rows] = await pool.query(
-      "DELETE FROM usuarios WHERE Id_usuario=?", //creamos el script para cargar los datos
+      "DELETE FROM usuarios WHERE Id_usuarios=?", //creamos el script para cargar los datos
       [id]
     
     );
-    res.status(201).json({id}); //Enviamos el estado al cliente
+    res.status(201).json({ message: "Usuario Eliminado con exito" }); //Enviamos el estado al cliente
   } catch (error) {
-    return res.status(500).json({ message: "Usuario Eliminado con exito" });
+    return res.status(500).json({ message: "Error al trata de eliminar" });
   }
 };
 
