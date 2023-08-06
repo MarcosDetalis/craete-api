@@ -1,11 +1,14 @@
 import { Router } from "express";
 // importacion de los controladores
-import {getUsuarios,agregarusu} from '../controllers/Usuarios/RegistrasUsuarios.js'
+import {
+  getUsuarios,
+  agregarusu,
+} from "../controllers/Usuarios/Usuarios.controllers.js";
 
-const router=Router();
+const router = Router();
 
-router.get("/Usuarios", getUsuarios) // cargar la vista
-router.post("/agregarusu",agregarusu);// carga un nuevo usuario
+router.get("/usuarios", getUsuarios); // cargar la vista
+router.post("/agregarusu", agregarusu); // carga un nuevo usuario
 
 //update
 //router.put("/update", updateReservas);
