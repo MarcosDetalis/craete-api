@@ -1,6 +1,6 @@
 import { Router } from "express";
 // importacion de los controladores
-import {updateReservas,anularReservas,pendienteReservas,ElimiReserva,getSolicitudes,ConsulReserva} from '../controllers/solicitudes.controller.js'
+import {updateReservas,anularReservas,pendienteReservas,ElimiReserva,getSolicitudes,ConsulReserva} from '../controllers/Solicitud/solicitudes.controller'
 
 const router=Router();
 
