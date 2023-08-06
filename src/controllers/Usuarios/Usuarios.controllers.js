@@ -38,4 +38,34 @@ export const agregarusu = async (req, res) => {
   }
 };
 
- 
+// Se elimina usuarios eliminar
+export const eliminarusu = async (req, res) => {
+  try {
+    const {id} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+   
+    const [rows] = await pool.query(
+      "DELETE FROM usuarios WHERE Id_usuario=?", //creamos el script para cargar los datos
+      [id]
+    
+    );
+    res.status(201).json({id}); //Enviamos el estado al cliente
+  } catch (error) {
+    return res.status(500).json({ message: "Usuario Eliminado con exito" });
+  }
+};
+
+// actualizar datos del usuario
+/*
+export const actualizarusu = async (req, res) => {
+  try {
+    console.log(req.body);
+    const {id,estado,estadoo} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+  
+    const [result] = await pool.query(
+    `UPDATE usuarios SET  res_estado=2,res_estadoo='Activo' WHERE Id_usuario=${id};`);
+    console.log(result);
+    res.status(201).json({id,estado,estadoo}); //Enviamos el estado al cliente
+  } catch (error) {
+    return res.status(500).json({ message: "error al tratar de actualizar" });
+  }
+};*/
