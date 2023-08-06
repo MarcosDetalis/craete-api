@@ -7,11 +7,9 @@ import {
   infrome,
   pendienteReservas,
   anularReservas,
-  
-} from "../controllers/reservas.controller.js";
+} from "../controllers/Agregar_usuario/Autor.controllers.js";
 
-import {getlisreservas} from "../controllers/lisreservas.controller.js"
-
+ 
 
 const router = Router();
 
@@ -34,9 +32,7 @@ router.put("/update", updateReservas);
 router.put("/anular", anularReservas);
 
 router.put("/pendiente", pendienteReservas);
-/// pablo
-router.get("/lisreserva", getlisreservas);
-
+ 
 
 
 export default router;
