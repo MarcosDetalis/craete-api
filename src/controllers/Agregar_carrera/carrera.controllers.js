@@ -12,16 +12,13 @@ export const getCarrera = async (req, res) => {
 export const agregarCarrera = async (req, res) => {
   try {
     const {
-      idCarreras,
       car_nombre,
     } = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
     console.log("router user agregar");
     const [rows] = await pool.query(
-      "INSERT INTO carreras (idCarrera,car_nombre) VALUES (?,?)", //creamos el script para cargar los datos
+      "INSERT INTO carreras (car_nombre) VALUES (?)", //creamos el script para cargar los datos
       [
-        idCarreras,
         car_nombre,
-      
       ]
     );
     res.status(201).json("Datos guadados"); //Enviamos el estado al cliente
@@ -47,17 +44,18 @@ export const eliminarCarrera = async (req, res) => {
 };
 
 // actualizar datos del usuario
-/*
-export const actualizarusu = async (req, res) => {
+
+export const actualizarCarrera = async (req, res) => {
   try {
     console.log(req.body);
-    const {id,estado,estadoo} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
-  
+    const {idcarrera,nombrecarrera} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+  console.log("ola",idcarrera,nombrecarrera)
     const [result] = await pool.query(
-    `UPDATE usuarios SET  res_estado=2,res_estadoo='Activo' WHERE Id_usuario=${id};`);
+    `UPDATE carreras SET  car_nombre=${nombrecarrera} WHERE idCarreras=${idcarrera};`);
     console.log(result);
-    res.status(201).json({id,estado,estadoo}); //Enviamos el estado al cliente
+    res.status(201).json({idcarrera,nombrecarrera}); //Enviamos el estado al cliente
   } catch (error) {
     return res.status(500).json({ message: "error al tratar de actualizar" });
   }
-};*/
+  
+};
