@@ -9,6 +9,6 @@ import {
 
 const router = Router();
 
-router.get("/usuarios", getCarrera); // cargar la vista
-router.post("/agregarusu", agregarCarrera); // carga un nuevo usuario
-router.delete("/eliminarusu",eliminarCarrera); // eliminamos un usuario
+router.get("/carreras", getCarrera); // cargar la vista
+router.post("/agregarcarrera", agregarCarrera); // carga un nuevo usuario
+router.delete("/eliminarcarrera",eliminarCarrera); // eliminamos un usuario
