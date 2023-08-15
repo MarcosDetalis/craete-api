@@ -47,13 +47,12 @@ export const eliminarCarrera = async (req, res) => {
 
 export const actualizarCarrera = async (req, res) => {
   try {
-    console.log(req.body);
-    const {idcarrera,nombrecarrera} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+    const { idcarrera, nombrecarrera } = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
   console.log("ola",idcarrera,nombrecarrera)
     const [result] = await pool.query(
-    `UPDATE carreras SET  car_nombre=${nombrecarrera} WHERE idCarreras=${idcarrera};`);
-    console.log(result);
-    res.status(201).json({idcarrera,nombrecarrera}); //Enviamos el estado al cliente
+    `UPDATE carreras SET  car_nombre="${nombrecarrera}" WHERE idCarreras=${idcarrera};`);
+  console.log(result);
+    res.status(201).json({ message: "Guardado con exito" }); //Enviamos el estado al cliente
   } catch (error) {
     return res.status(500).json({ message: "error al tratar de actualizar" });
   }
