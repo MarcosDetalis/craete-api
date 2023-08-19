@@ -25,6 +25,7 @@ export const agregarCarrera = async (req, res) => {
 
 // Se elimina usuarios eliminar
 export const eliminarCarrera = async (req, res) => {
+  
   try {
     const {id} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
      console.log(id)
@@ -44,7 +45,7 @@ export const eliminarCarrera = async (req, res) => {
 export const actualizarCarrera = async (req, res) => {
   try {
     const { idcarrera, nombrecarrera } = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
-  console.log("ola",idcarrera,nombrecarrera)
+ 
     const [result] = await pool.query(
     `UPDATE carreras SET  car_nombre="${nombrecarrera}" WHERE idCarreras=${idcarrera};`);
   console.log(result);
