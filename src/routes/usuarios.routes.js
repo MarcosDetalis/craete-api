@@ -4,7 +4,7 @@ import {
   getUsuarios,
   agregarusu,
   eliminarusu,
- // actualizarusu,
+  actualizarusu,
 } from "../controllers/Usuarios/Usuarios.controllers.js";
 
 const router = Router();
@@ -12,7 +12,7 @@ const router = Router();
 router.get("/usuarios", getUsuarios); // cargar la vista
 router.post("/agregarusu", agregarusu); // carga un nuevo usuario
 router.delete("/eliminarusu",eliminarusu); // eliminamos un usuario
-//router.put("/actualizarusu", actualizarusu);
+router.put("/actualizarusu", actualizarusu); 
 
 //update
 //router.put("/update", updateReservas);
