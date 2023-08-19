@@ -55,17 +55,25 @@ export const eliminarusu = async (req, res) => {
 };
 
 // actualizar datos del usuario
-/*
+
 export const actualizarusu = async (req, res) => {
   try {
     console.log(req.body);
-    const {id,estado,estadoo} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+    const {id,usu_nombre,
+      usu_apellido,
+      usu_telefono,
+      contrasena} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
   
     const [result] = await pool.query(
-    `UPDATE usuarios SET  res_estado=2,res_estadoo='Activo' WHERE Id_usuario=${id};`);
+    `UPDATE usuarios 
+    SET 
+    usu_nombre = "${usu_nombre}",
+    usu_apellido ="${usu_apellido}",
+    usu_telefono =${usu_telefono},
+    contrasena = "${contrasena}" WHERE id_usuarios=${id};`);
     console.log(result);
-    res.status(201).json({id,estado,estadoo}); //Enviamos el estado al cliente
+    res.status(201).json({message: "Datos actaulizados con exito"}); //Enviamos el estado al cliente
   } catch (error) {
     return res.status(500).json({ message: "error al tratar de actualizar" });
   }
-};*/
+};
