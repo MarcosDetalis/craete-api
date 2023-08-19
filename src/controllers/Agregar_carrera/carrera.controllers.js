@@ -1,25 +1,21 @@
 import { pool } from "../../db.js"; //conexion  a la base de datos
 
 
-//Obtenemos todos los usuarios
+//Obtiene los carreras
 export const getCarrera = async (req, res) => {
   console.log(req.params.id);
   const [result] = await pool.query("SELECT * from carreras");
   res.json(result);
 };
 
-//Se guarda a nuevos usuarios 
+//Aguega nuevos carreras
 export const agregarCarrera = async (req, res) => {
   try {
-    const {
-      car_nombre,
-    } = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
+    const {car_nombre} = req.body; //el body req es lo que obtenemos del cliente osea los datos que se envian
     console.log("router user agregar");
     const [rows] = await pool.query(
       "INSERT INTO carreras (car_nombre) VALUES (?)", //creamos el script para cargar los datos
-      [
-        car_nombre,
-      ]
+      [car_nombre]
     );
     res.status(201).json("Datos guadados"); //Enviamos el estado al cliente
   } catch (error) {
