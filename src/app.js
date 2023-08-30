@@ -6,6 +6,7 @@ import indexRoutes from "./routes/index.routes.js";
 import solicitudPoint from "./routes/solicitudes.routes.js"
 import usuariosPoint from "./routes/usuarios.routes.js"
 import carreraPoint from "./routes/carrera.routes.js"
+import autorPoint from "./routes/autor.routes.js" // se importa autor
 const app = express();
 // Middlewares
 app.use(morgan("dev"));
@@ -17,6 +18,8 @@ app.use("/api", bibliotecaPoint);
 app.use("/soli", solicitudPoint);
 app.use("/usu",usuariosPoint);
 app.use("/car",carreraPoint);
+app.use("/aut",autorPoint)
+// agregar el router de autor
 app.use((req, res, next) => {
   res.status(404).json({ message: "No enontrado" });
 });

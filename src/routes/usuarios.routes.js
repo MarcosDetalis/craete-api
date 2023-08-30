@@ -14,17 +14,4 @@ router.post("/agregarusu", agregarusu); // carga un nuevo usuario
 router.delete("/eliminarusu",eliminarusu); // eliminamos un usuario
 router.put("/actualizarusu", actualizarusu); 
 
-//update
-//router.put("/update", updateReservas);
-// anular reservas
-//router.put("/anular", anularReservas);
-
-//router.put("/pendiente", pendienteReservas);
-
-//router.delete("/eliminar", ElimiReserva);
-
-//router.post("/Agregar", agregaUsuarios);
-
-//router.delete("/consulta/:q", ConsulReserva);
-
 export default router;
