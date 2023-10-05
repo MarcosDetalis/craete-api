@@ -1,11 +1,18 @@
 import { pool } from "../../db.js";
 
 
+//ORIGINAL
+// export const getSolicitudes = async (req, res) => {
+//     const [result] = await pool.query("SELECT * from reservas");
+//     res.json(result);
+//   };
 
 export const getSolicitudes = async (req, res) => {
-    const [result] = await pool.query("SELECT * from reservas");
-    res.json(result);
-  };
+  const {q} = req.query  
+  console.log(q)
+  const [result] = await pool.query("SELECT * from reservas");
+  res.json(result);
+};
 
 
 
