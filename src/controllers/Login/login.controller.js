@@ -11,7 +11,7 @@ export const getLogin = async (req, res) => {
       const token = jwt.sign(
         { id: correo },'opop',
         {
-          expiresIn: 86, // 24 hours
+          expiresIn: '1h', // 24 hours
         }  
       );
    res.header("auth-token", token).json({
@@ -22,7 +22,7 @@ export const getLogin = async (req, res) => {
         `UPDATE usuarios SET token="${token}" WHERE usu_correo= "${correo}";`
       );
 
-      console.log(token);
+   
      
   } else {
     res.status(500).json({ message: "Error al autenticarse" });
@@ -34,10 +34,11 @@ export const gettoket = async (req, res) => {
    `SELECT token from usuarios where  token= "${token}" `
  );
   if (result.length > 0) {
-    res.status(200).json({ message: result });
-    console.log("login",result)
+    res.status(200).json({ message: { result } });
+     console.log("tiken", result);
   } else {
     res.status(500).json({ message: "Error al autenticarse" });
+    console.log("tiken no");
   }
 
 };
