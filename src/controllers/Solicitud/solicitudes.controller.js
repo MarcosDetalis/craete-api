@@ -1,16 +1,20 @@
 import { pool } from "../../db.js";
 
 
-//ORIGINAL
-// export const getSolicitudes = async (req, res) => {
-//     const [result] = await pool.query("SELECT * from reservas");
-//     res.json(result);
-//   };
 
 export const getSolicitudes = async (req, res) => {
+    const [result] = await pool.query("SELECT * from reservas");
+    res.json(result);
+  };
+
+
+// select count(idreservas) as Pendientes from reservas where res_estadoo='pendiente' or res_estado=1
+// select count(idreservas) as activos from reservas where res_estadoo='activo' or res_estado=2
+// select count(idreservas)as anulados from reservas where res_estadoo='anulado' or res_estado=3
+export const cantidadReserva = async (req, res) => {
   const {q} = req.query  
   console.log(q)
-  const [result] = await pool.query("SELECT * from reservas");
+  const [result] = await pool.query("SELECT  count(idreservas) from reservas");
   res.json(result);
 };
 
