@@ -8,6 +8,7 @@ export const getLogin = async (req, res) => {
   );
   if (result.length > 0) {
     console.log(result);
+       
       const token = jwt.sign(
         { id: correo },'opop',
         {
@@ -17,6 +18,7 @@ export const getLogin = async (req, res) => {
    res.header("auth-token", token).json({
      error: null,
      data: { token },
+     result: {result}
    });
       await pool.query(
         `UPDATE usuarios SET token="${token}" WHERE usu_correo= "${correo}";`
@@ -31,7 +33,7 @@ export const getLogin = async (req, res) => {
 export const gettoket = async (req, res) => {
  const { token } = req.body;
  const [result] = await pool.query(
-   `SELECT token from usuarios where  token= "${token}" `
+   `SELECT token,usu_nombre from usuarios where  token= "${token}" `
  );
   if (result.length > 0) {
     res.status(200).json({ message: { result } });

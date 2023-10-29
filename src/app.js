@@ -9,6 +9,7 @@ import carreraPoint from "./routes/carrera.routes.js"
 import autorPoint from "./routes/autor.routes.js" // se importa autor
 import login from "./routes/login.routes.js"
 import pais from "./routes/pais.routes.js"
+import busca from "./routes/busca.router.js"
 const app = express();
 // Middlewares
 app.use(morgan("dev"));
@@ -22,7 +23,10 @@ app.use("/usu",usuariosPoint);
 app.use("/car",carreraPoint);
 app.use("/aut", autorPoint);
 app.use("/login", login);
-app.use("/pais",pais)
+app.use("/pais",pais);
+app.use("/busque",busca)
+
+
 // agregar el router de autor
 app.use((req, res, next) => {
   res.status(404).json({ message: "No enontrado" });
