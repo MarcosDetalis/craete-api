@@ -13,6 +13,10 @@ import pais from "./routes/pais.routes.js"
 import busca from "./routes/busca.router.js"
  
 import loginPoint from "./routes/login.routes.js"
+
+
+import portadasPoint  from "./routes/portadas.routes.js"//rutas de imgs slider
+import cantidadesPoint from "./routes/cantireservas.routes.js"//ruta de los graficos
  
 const app = express();
 // Middlewares
@@ -30,6 +34,10 @@ app.use("/aut", autorPoint);
 app.use("/login", login);
 app.use("/pais",pais);
 app.use("/busque",busca)
+
+// rutas portadas y cantidad reservas
+app.use("/portadalibros", portadasPoint);
+app.use("/cantidad", cantidadesPoint);
 
  
 app.use("/aut",autorPoint);

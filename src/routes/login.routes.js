@@ -10,13 +10,13 @@ router.post("/auten", getLogin);
  
 router.post("/toket", gettoket);
 
-export default router;
+// export default router;
  
 
-import {getLogin} from '../controllers/Login/login.controllers.js'
+// import {getLogin} from '../controllers/Login/login.controllers.js'
 
 
-const router = Router();
+// const router = Router();
 
 //obtenemos con metodo pos ya que traemos de la db
 router.post("/iniciarsesion", getLogin);
